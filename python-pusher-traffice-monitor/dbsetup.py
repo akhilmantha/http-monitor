@@ -53,15 +53,15 @@ def select_all_pages(c):
     rows = c.fetchall()
     return rows
 
-    def select_all_user_visits(c, session_id):
-        sql = "SELECT * FROM pages where session =?"
-        c.execute(sql,[session_id])
-        rows = c.fetchall()
-        return rows
+def select_all_user_visits(c, session_id):
+    sql = "SELECT * FROM pages where session =?"
+    c.execute(sql,[session_id])
+    rows = c.fetchall()
+    return rows
 
-    def main():
-        database = "./pythonsqlite.db"
-        sql_create_pages = """
+def main():
+    database = "./pythonsqlite.db"
+    sql_create_pages = """
             CREATE TABLE IF NOT EXISTS pages (
                 id integer PRIMARY KEY,
                 name varchar(225) NOT NULL,
@@ -70,7 +70,7 @@ def select_all_pages(c):
                 visits integer NOT NULL Default 1
             );
         """
-        sql_create_session = """
+    sql_create_session = """
             CREATE TABLE IF NOT EXISTS sessions (
                 id integer PRIMARY KEY,
                 ip varchar(225) NOT NULL,
@@ -85,14 +85,14 @@ def select_all_pages(c):
         """
 
         # create a database connection
-        conn = create_connection(database)
-        if conn is not None:
+    conn = create_connection(database)
+    if conn is not None:
             # create tables
-            create_table(conn, sql_create_pages)
-            create_table(conn, sql_create_session)
-            print("Connection established!")
-        else:
-            print("Could not establish connection")
+        create_table(conn, sql_create_pages)
+        create_table(conn, sql_create_session)
+        print("Connection established!")
+    else:
+        print("Could not establish connection")
 
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
