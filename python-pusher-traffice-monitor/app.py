@@ -13,10 +13,10 @@ app.secret_key = os.urandom(24)
 
 # configure pusher object
 pusher = Pusher(
-app_id='PUSHER_APP_ID',
-key='PUSHER_APP_KEY',
-secret='PUSHER_APP_SECRET',
-cluster='PUSHER_APP_CLUSTER',
+app_id='833071',
+key='f55e5418eacd8f2ed633',
+secret='2d6c610ba80b812648aa',
+cluster='ap2',
 ssl=True)
 
 database = "./pythonsqlite.db"
