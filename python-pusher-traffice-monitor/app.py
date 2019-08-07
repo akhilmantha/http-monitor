@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, jsonify
 import urllib
-from pusher import Pusher
+import pusher
 from datetime import datetime
 import httpagentparser
 import json
