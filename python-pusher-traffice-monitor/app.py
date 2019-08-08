@@ -59,9 +59,9 @@ def getAnalyticsData():
         resp = urllib.request.urlopen(api)
         result = resp.read()
         result = json.loads(result.decode("utf-8"))
-        userCountry = result["country"]
-        userContinent = result["continent"]
-        userCity = result["city"]
+        userCountry = result.get('country','')
+        userContinent = result.get('continent','')
+        userCity = result.get('city','')
     except:
         print("Could not find: ", userIP)
     getSession()
@@ -115,14 +115,14 @@ def get_all_sessions():
     dbRows = select_all_sessions(c)
     for row in dbRows:
         data.append({
-            'ip' : row['ip'],
-            'continent' : row['continent'],
-            'country' : row['country'],
-            'city' : row['city'],
-            'os' : row['os'],
-            'browser' : row['browser'],
-            'session' : row['session'],
-            'time' : row['created_at']
+            'ip' : row.get('ip',''),
+            'continent' : row.get('continent',''),
+            'country' : row.get('country',''),
+            'city' : row.get('city',''),
+            'os' : row.get('os',''),
+            'browser' : row.get('browser',''),
+            'session' : row.get('session',''),
+            'time' : row.get('created_at','')
         })
     return jsonify(data)
 
