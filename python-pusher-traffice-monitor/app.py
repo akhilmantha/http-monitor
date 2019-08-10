@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, jsonify
-from Pusher import pusher
+import pusher
 import urllib
 from datetime import datetime
 import httpagentparser
