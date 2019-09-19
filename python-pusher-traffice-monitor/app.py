@@ -97,7 +97,7 @@ def index():
 @app.route('/about')
 def about():
     data = ['about',sessionID, str(datetime.now().replace(microsecond=0))]
-    #parseVisitor(data)
+    parseVisitor(data)
     return render_template('about.html')
 
 @app.route('/dashboard')
