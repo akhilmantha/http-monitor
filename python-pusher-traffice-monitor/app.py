@@ -27,7 +27,7 @@ userOS = None
 userIP = None
 userCity = None
 userBrowser = None
-userCountry = None
+userCountry = None 
 userContinent = None
 sessionID = None
 
@@ -67,6 +67,9 @@ def getAnalyticsData():
     getSession()
 
 def getSession():
+    """
+    Get user session details
+    """
     global sessionID
     time = datetime.now().replace(microsecond=0)
     if 'user' not in session:
