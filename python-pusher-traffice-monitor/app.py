@@ -114,6 +114,9 @@ def sessionPages(session_id):
 
 @app.route('/get-all-sessions')
 def get_all_sessions():
+    """
+    Getting all the session details of the user
+    """
     data = []
     dbRows = select_all_sessions(c)
     for row in dbRows:
