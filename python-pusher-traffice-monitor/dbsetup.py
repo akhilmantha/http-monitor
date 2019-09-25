@@ -20,7 +20,7 @@ def update_or_create_page(c,data):
     if result == None:
         create_pages(c,data)
     else:
-        print(result)
+       #print(value)
         update_pages(c, result['id'])
 
 def create_pages(c, data):
